@@ -1,13 +1,21 @@
 
-body{
-  font-family: 'Poppins', sans-serif;
-  font-size: 1rem;
-  font-weight: 900;
-}
 
 * {
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
-  
+    font-family: 'Poppins', sans-serif !important;
+  }
+
+  body{
+    background-color: #E7F6F2;
+  }
+
+  .hero{
+    background-image: url("../src/assets/images/heroBgImage.jpg");
+    object-fit: contain;
+    mask-repeat: no-repeat;
+     background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   }

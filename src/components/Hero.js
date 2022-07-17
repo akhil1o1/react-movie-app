@@ -1,9 +1,10 @@
 import React from "react";
-import {Paper} from "@mui/material";
+import {Paper, Typography} from "@mui/material";
 
 function Hero(){
-    return <Paper sx={{height:"30vh"}} variant="outlined" square>
-        <h1>welcome to movie app</h1>
+    return <Paper className="hero" sx={{height:"45vh", display:"flex", flexDirection:"column", justifyContent:"center" ,alignItems:"center"}} variant="outlined" square>
+        <Typography variant="h1" fontSize="70px" fontWeight="700" color="#fff">MovieMania</Typography><br/>
+        <Typography variant="h5" mt="0" fontWeight="400" color="#fff">Search and find information about movies.</Typography>
     </Paper>
 }
 
