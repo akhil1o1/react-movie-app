@@ -6,13 +6,41 @@ import RightArrowIcon from '../assets/icons/right-arrow.png';
 import LeftArrowIcon from '../assets/icons/left-arrow.png';
 
 
+const LeftArrow = () => {
+    const { scrollPrev } = useContext(VisibilityContext);
+  
+    return (
+      <Typography onClick={() => scrollPrev()} className="right-arrow">
+        <img src={LeftArrowIcon} alt="right-arrow" />
+      </Typography>
+    );
+  };
+  
+  const RightArrow = () => {
+    const { scrollNext } = useContext(VisibilityContext);
+  
+    return (
+      <Typography onClick={() => scrollNext()} className="left-arrow">
+        <img src={RightArrowIcon} alt="right-arrow" />
+      </Typography>
+    );
+  };
+  
+
+
 function HorizontalScrollBar({movieGenres}){
     console.log(movieGenres);
-    return  <Stack direction="row" gap="20px" flexWrap="wrap" alignItems="center" justifyContent="center">
-        {movieGenres.map((item)=>{
-            return <MovieGenreCard genre={item.name}/>
+    return  <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
+   {movieGenres.map((item)=>{
+             return <Box 
+             key={item.id||item}
+            m="0 40px"
+             >
+             <MovieGenreCard genre={item.name}/>
+             </Box>
         })}
-        </Stack>
+        </ScrollMenu>
+        
 }
 
 export default HorizontalScrollBar;

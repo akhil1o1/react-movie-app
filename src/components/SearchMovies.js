@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {Stack, Typography, TextField, Button} from "@mui/material";
+import {Box, Stack, Typography, TextField, Button} from "@mui/material";
 import HorizontalScrollbar from "../components/HorizontalScrollbar";
 import {options, fetchData} from "../utils/fetchData";
 
@@ -22,11 +22,13 @@ function SearchMovies(){
 
     return (<Stack alignItems="center" justifyContent="center" sx={{paddingInline:"10%"}}>
     <Typography variant="h4" fontWeight="700" p="30px">Search some of the best movies by Name</Typography>
-    <Stack direction="row" height="55px">
+    <Stack direction="row" height="55px" mb="70px">
     <TextField type="text" label="Enter movie name"  sx={{paddingBottom:"30px", width:{lg:"700px", xs:"350px"}}} />
     <Button variant="contained" color="success">Search</Button>
     </Stack>
+    <Box sx={{position:"relative", width:"100%", p:"20px"}}>
     <HorizontalScrollbar movieGenres={movieGenres}/>
+    </Box>
     </Stack>)
 }
 
