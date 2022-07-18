@@ -2,7 +2,7 @@ export const options = {
     method: 'GET',
     headers: {
       'X-RapidAPI-Host': 'movies-app1.p.rapidapi.com',
-      'X-RapidAPI-Key':process.env.REACT_MOVIE_APP_RAPID_API_KEY
+      'X-RapidAPI-Key':"e5664d8631msh7986803c20bd967p158b33jsn1b4ffc1b0108"
     }
   };
   
