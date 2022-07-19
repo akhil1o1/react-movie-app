@@ -14,18 +14,18 @@ function SearchMovies(){
     const [movieGenres, setMovieGenre] = useState([]);
     const [releaseYears, setReleaseYears] = useState([]);
 
-    console.log(releaseYears);
+    console.log(Movies);
 
     
 
 
     useEffect(()=>{
-        // const fetchMovies = async () =>{
-        //     const moviesData = await fetchData(`https://movies-app1.p.rapidapi.com/api/movies`, options);
-        //     SetMovies(moviesData.results);
-        //     console.log(moviesData.results);
-        // }
-        // fetchMovies();
+        const fetchMovies = async () =>{
+            const moviesData = await fetchData(`https://movies-app1.p.rapidapi.com/api/movies`, options);
+            SetMovies(moviesData.results);
+            console.log(moviesData.results);
+        }
+        fetchMovies();
 
         const fetchReleaseYears = async () =>{
             const releaseYearsData = await fetchData(`https://movies-app1.p.rapidapi.com/api/years`, options);
@@ -46,7 +46,7 @@ function SearchMovies(){
         console.log("useEffect ran");
     },[]);
 
-    return (<Box><Stack direction="row" alignItems="center" justifyContent="center" sx={{paddingInline:"10%", mt:"40px", gap:"20px"}}divider={<Divider orientation="vertical" flexItem />}>  
+    return (<Box><Stack direction="row" alignItems="center" justifyContent="center" sx={{paddingInline:"10%", pt:"40px", pb:"30px", gap:"20px", backgroundColor:"#fff"}}divider={<Divider orientation="vertical" flexItem />}>  
     <Box>  
     <Typography variant="h4" fontWeight="700">Search some of the best movies by Genre</Typography>
     <Stack direction="row" flexWrap="wrap" gap="10px" mt="20px">
@@ -60,7 +60,23 @@ function SearchMovies(){
     <SelectYear releaseYears={releaseYears}/>
     </Stack>
     </Stack>
-    <MovieCard/>
+    <Box marginTop="50px" textAlign="center">
+    <Typography variant="h4" fontWeight="700" m="50px">Showing all movies</Typography>
+        <Stack direction="row" sx={{flexWrap:"wrap", gap:"20px", alignItems:"center", justifyContent:"space-around", padding:"50px"}}>
+            {Movies.length && Movies.map((item)=>(
+                <MovieCard 
+                    key={nanoid()}
+                    id={item._id}
+                    image={item.image}
+                    year={item.year}
+                    genre={item.genres[0].name}
+                    rating={item.rating}
+                    title={item.titleOriginal}
+                    country={item.countries[0].name}
+                />
+            ))}
+        </Stack>
+    </Box>
     </Box>)
 }
 

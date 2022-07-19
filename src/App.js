@@ -5,6 +5,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
+import Footer from "./components/Footer";
 import MovieDetails from "./pages/MovieDetails";
 
 const theme = createTheme({
@@ -24,7 +25,7 @@ function App (){
             <Route path="/" element={<Home/>}/> 
             {/* <Route path="/movie/:id" element={<MovieDetails/>}/> */}
         </Routes>
-        
+        <Footer />
     </Box>
     </ThemeProvider>
 }
