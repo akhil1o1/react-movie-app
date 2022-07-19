@@ -9,6 +9,7 @@
 
   body{
     background-color: #E7F6F2;
+    height: 1500px;
   }
 
   ::-webkit-scrollbar {
@@ -27,6 +28,19 @@
 
   .year-input{
     height: 30px !important;
+  }
+
+  .movie-thumbnail{
+    width:95%;
+    height: 75%;
+    border-radius: 15px;
+  }
+
+  .movie-card-container{
+    padding: 5px;
+    padding-top: 10px;
+    border-radius: 15px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
 
   

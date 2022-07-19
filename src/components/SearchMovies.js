@@ -4,6 +4,7 @@ import ChipCard from "./ChipCard";
 import {options, fetchData} from "../utils/fetchData";
 import {nanoid} from "nanoid";
 import SelectYear from "./SelectYear";
+import MovieCard from "./MovieCard";
 
 
 
@@ -45,7 +46,7 @@ function SearchMovies(){
         console.log("useEffect ran");
     },[]);
 
-    return (<Stack direction="row" alignItems="center" justifyContent="center" sx={{paddingInline:"10%", mt:"40px", gap:"20px"}}divider={<Divider orientation="vertical" flexItem />}>  
+    return (<Box><Stack direction="row" alignItems="center" justifyContent="center" sx={{paddingInline:"10%", mt:"40px", gap:"20px"}}divider={<Divider orientation="vertical" flexItem />}>  
     <Box>  
     <Typography variant="h4" fontWeight="700">Search some of the best movies by Genre</Typography>
     <Stack direction="row" flexWrap="wrap" gap="10px" mt="20px">
@@ -58,7 +59,9 @@ function SearchMovies(){
     <Typography variant="h6" fontWeight="700" mb="10px">Search movies by release year</Typography>
     <SelectYear releaseYears={releaseYears}/>
     </Stack>
-    </Stack>)
+    </Stack>
+    <MovieCard/>
+    </Box>)
 }
 
 export default SearchMovies;
