@@ -5,6 +5,7 @@ import {options, fetchData, movieOptions} from "../utils/fetchData";
 import {nanoid} from "nanoid";
 import SelectYear from "./SelectYear";
 import MoviesSection from "./MoviesSection";
+import PageNavigation from "./PageNavigation";
 
 
 
@@ -13,6 +14,9 @@ function SearchMovies(){
     const [Movies, SetMovies] = useState("");
     const [movieGenres, setMovieGenre] = useState([]);
     const [releaseYears, setReleaseYears] = useState([]);
+    const [page, setPage] = useState(1);
+    const [selectedGenre, setSelectedGenre] = useState([]);
+    const [selectedYear, setSelectedYear] = useState("");
 
     console.log(Movies);
 
@@ -65,6 +69,7 @@ function SearchMovies(){
     </Stack>
     </Stack>
     <MoviesSection Movies={Movies}/>
+    <PageNavigation />
     </Box>)
 }
 

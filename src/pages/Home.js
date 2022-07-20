@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar";
 
 
 function Home(){
+    
     return <Box>
         <Navbar/>
         <Hero/>
