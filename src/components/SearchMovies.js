@@ -20,6 +20,20 @@ function SearchMovies(){
 
     console.log(Movies);
 
+    function nextPage(){
+        setPage((prevValue)=>{
+            return prevValue+1;
+        })
+    }
+
+    //when page is 1 disable the prevIcon button in pagenavigation
+
+    function prevPage(){
+        setPage((prevValue)=>{
+            console.log(prevValue);
+        })
+    }
+
     
 
 
@@ -69,7 +83,7 @@ function SearchMovies(){
     </Stack>
     </Stack>
     <MoviesSection Movies={Movies}/>
-    <PageNavigation />
+    <PageNavigation page={page} nextPage={nextPage} prevPage={prevPage} />
     </Box>)
 }
 
