@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from "react";
 import {Box, Stack, Typography, Divider} from "@mui/material";
 import ChipCard from "./ChipCard";
-import {options, fetchData} from "../utils/fetchData";
+import {options, fetchData, movieOptions} from "../utils/fetchData";
 import {nanoid} from "nanoid";
 import SelectYear from "./SelectYear";
-import MovieCard from "./MovieCard";
+import MoviesSection from "./MoviesSection";
 
 
 
@@ -21,7 +21,7 @@ function SearchMovies(){
 
     useEffect(()=>{
         const fetchMovies = async () =>{
-            const moviesData = await fetchData(`https://movies-app1.p.rapidapi.com/api/movies`, options);
+            const moviesData = await fetchData(`https://movies-app1.p.rapidapi.com/api/movies?sort=year`, options);
             SetMovies(moviesData.results);
             console.log(moviesData.results);
         }
@@ -46,7 +46,11 @@ function SearchMovies(){
         console.log("useEffect ran");
     },[]);
 
-    return (<Box><Stack direction="row" alignItems="center" justifyContent="center" sx={{paddingInline:"10%", pt:"40px", pb:"30px", gap:"20px", backgroundColor:"#fff"}}divider={<Divider orientation="vertical" flexItem />}>  
+
+
+    return (<Box><Stack direction="row" alignItems="center" justifyContent="center" 
+    sx={{paddingInline:"10%", pt:"40px", pb:"60px", gap:"20px", backgroundColor:"#fff"}}
+    divider={<Divider orientation="vertical" flexItem />}>  
     <Box>  
     <Typography variant="h4" fontWeight="700">Search some of the best movies by Genre</Typography>
     <Stack direction="row" flexWrap="wrap" gap="10px" mt="20px">
@@ -55,28 +59,12 @@ function SearchMovies(){
         ))}
     </Stack>
     </Box>
-    <Stack alignItems="center" justifyContent="center" mb="70px">
+    <Stack alignItems="center" justifyContent="center" >
     <Typography variant="h6" fontWeight="700" mb="10px">Search movies by release year</Typography>
     <SelectYear releaseYears={releaseYears}/>
     </Stack>
     </Stack>
-    <Box marginTop="50px" textAlign="center">
-    <Typography variant="h4" fontWeight="700" m="50px">Showing all movies</Typography>
-        <Stack direction="row" sx={{flexWrap:"wrap", gap:"20px", alignItems:"center", justifyContent:"space-around", padding:"50px"}}>
-            {Movies.length && Movies.map((item)=>(
-                <MovieCard 
-                    key={nanoid()}
-                    id={item._id}
-                    image={item.image}
-                    year={item.year}
-                    genre={item.genres[0].name}
-                    rating={item.rating}
-                    title={item.titleOriginal}
-                    country={item.countries[0].name}
-                />
-            ))}
-        </Stack>
-    </Box>
+    <MoviesSection Movies={Movies}/>
     </Box>)
 }
 

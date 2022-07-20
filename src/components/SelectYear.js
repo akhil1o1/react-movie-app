@@ -8,7 +8,7 @@ function SelectYear({releaseYears, year}){
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={year}
+          value={2022}
           label="Release Year"
         //   onChange={handleChange}
         >

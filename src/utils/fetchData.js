@@ -5,6 +5,15 @@ export const options = {
       'X-RapidAPI-Key':"e5664d8631msh7986803c20bd967p158b33jsn1b4ffc1b0108"
     }
   };
+
+  export const movieOptions = {
+    method: 'GET',
+    params: {page: '10', sort: 'year', type: 'movies'},
+    headers: {
+      'X-RapidAPI-Host': 'movies-app1.p.rapidapi.com',
+      'X-RapidAPI-Key':"e5664d8631msh7986803c20bd967p158b33jsn1b4ffc1b0108"
+    }
+  };
   
 
 export async function fetchData(url, options){
