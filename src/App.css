@@ -25,6 +25,12 @@
   background-size: cover;
   }
 
+  .genre-chip:hover{
+    background-color: rgba(46, 125, 50, 0.699) !important;
+    color: #fff;
+    transition: all ease-in-out;
+  }
+
   .year-input{
     height: 30px !important;
   }
@@ -47,6 +53,7 @@
     background-color: rgba(255, 255, 0, 0.363);
     transition: 0.1s all ease-in-out;
   }
+
 
   .arrow-icon{
     color: black;

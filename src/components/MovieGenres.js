@@ -4,12 +4,15 @@ import ChipCard from "./ChipCard";
 import {nanoid} from "nanoid";
 
 
-function MovieGenres({movieGenresList}){
+function MovieGenres({movieGenresList, selectedGenre, setSelectedGenre}){
     return  <Box>  
     <Typography variant="h4" fontWeight="700">Search some of the best movies by Genre</Typography>
     <Stack direction="row" flexWrap="wrap" gap="10px" mt="20px">
         {movieGenresList.length>0 && movieGenresList.map((item)=>(
-            <ChipCard key={nanoid()} label={item.name}/>
+            <ChipCard key={nanoid()} label={item.name}
+                selectedGenre={selectedGenre}
+                setSelectedGenre={setSelectedGenre}
+            />
         ))}
     </Stack>
     </Box>
