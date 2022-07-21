@@ -10,43 +10,49 @@ import MovieGenres from "./MovieGenres";
 
 function SearchMovies(){
 
-    const [Movies, SetMovies] = useState("");
+    
     const [movieGenresList, setMovieGenresList] = useState([]);
     const [releaseYears, setReleaseYears] = useState([]);
+    const [Movies, SetMovies] = useState("");
     const [page, setPage] = useState(1);
     const [selectedGenre, setSelectedGenre] = useState("all");
-    const [selectedYear, setSelectedYear] = useState("");
+    const [selectedYear, setSelectedYear] = useState(2022);
 
     console.log(selectedGenre);
 
+    const searchGenre = selectedGenre!=="all" ? `&genres=${selectedGenre}` : null;
+    const searchYear = selectedYear!=="" ? `&year=${selectedYear}` : null;
+    console.log(searchGenre);
+
     // useEffect(()=>{
     //     const fetchMovies = async () =>{
-    //         const moviesData = await fetchData(`https://movies-app1.p.rapidapi.com/api/movies?page=${page}`, options);
-    //         SetMovies(moviesData.results);
-    //         console.log(moviesData.results);
+     
+    //             const moviesData = await fetchData(`https://movies-app1.p.rapidapi.com/api/movies?page=${page}`, options);
+    //             SetMovies(moviesData.results);
+    //             console.log(moviesData.results);
     //     }
     //     fetchMovies();
     //     window.scrollTo({top: 500, left: 0, behavior: 'smooth'});
-    // },[page]);
+    // },[page,  selectedYear]);
 
 
     useEffect(()=>{
 
-        // const fetchReleaseYears = async () =>{
-        //     const releaseYearsData = await fetchData(`https://movies-app1.p.rapidapi.com/api/years`, options);
+        const fetchReleaseYears = async () =>{
+            const releaseYearsData = await fetchData(`https://movies-app1.p.rapidapi.com/api/years`, options);
 
-        //     setReleaseYears(releaseYearsData.results);
-        //     console.log(releaseYearsData);
-        // }
-        // fetchReleaseYears();
+            setReleaseYears(releaseYearsData.results);
+            console.log(releaseYearsData);
+        }
+        fetchReleaseYears();
 
-        const fetchMovieGenres = async () =>{
-            const movieGenresData = await fetchData("https://movies-app1.p.rapidapi.com/api/genres", options);
+        // const fetchMovieGenres = async () =>{
+        //     const movieGenresData = await fetchData("https://movies-app1.p.rapidapi.com/api/genres", options);
 
-            setMovieGenresList([...movieGenresData.results]);
-            console.log(movieGenresData);
-        } 
-        fetchMovieGenres();
+        //     setMovieGenresList([...movieGenresData.results]);
+        //     console.log(movieGenresData);
+        // } 
+        // fetchMovieGenres();
 
     window.scrollTo({top: 500, left: 0, behavior: 'smooth'});
 
@@ -64,7 +70,10 @@ function SearchMovies(){
     setSelectedGenre={setSelectedGenre}/>
     <Stack alignItems="center" justifyContent="center" >
     <Typography variant="h6" fontWeight="700" mb="10px">Search movies by release year</Typography>
-    <SelectYear releaseYears={releaseYears}/>
+    <SelectYear 
+    releaseYears={releaseYears} 
+    selectedYear={selectedYear} 
+    setSelectedYear={setSelectedYear}/>
     </Stack>
     </Stack>
     <MoviesSection Movies={Movies} />

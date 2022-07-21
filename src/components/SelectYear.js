@@ -2,18 +2,24 @@ import React from "react";
 import {FormControl, InputLabel, Select, MenuItem} from "@mui/material";
 import {nanoid} from "nanoid";
 
-function SelectYear({releaseYears, year}){
+function SelectYear({releaseYears, selectedYear, setSelectedYear}){
+
+  function handleChange(event) {
+    const {value} = event.target;
+    setSelectedYear(value);
+  }
+
     return(<FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Release Year</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={2022}
+          value={selectedYear}
           label="Release Year"
-        //   onChange={handleChange}
+          onChange={handleChange}
         >
         {releaseYears.map((item)=>(
-            <MenuItem key={nanoid()} value={item.name}>{item.name}</MenuItem>
+            <MenuItem key={nanoid()} value={item.name} >{item.name}</MenuItem>
         ))}
         </Select>
       </FormControl>)
