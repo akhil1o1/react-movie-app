@@ -2,7 +2,7 @@ export const options = {
     method: 'GET',
     headers: {
       'X-RapidAPI-Host': 'movies-app1.p.rapidapi.com',
-      'X-RapidAPI-Key':"e5664d8631msh7986803c20bd967p158b33jsn1b4ffc1b0108"
+      'X-RapidAPI-Key':"0f711d84eamsh1a3223652e50501p1ae223jsnb03321179d6b"
     }
   };
 
@@ -11,7 +11,7 @@ export const options = {
     params: {page: '10', sort: 'year', type: 'movies'},
     headers: {
       'X-RapidAPI-Host': 'movies-app1.p.rapidapi.com',
-      'X-RapidAPI-Key':"e5664d8631msh7986803c20bd967p158b33jsn1b4ffc1b0108"
+      'X-RapidAPI-Key':"0f711d84eamsh1a3223652e50501p1ae223jsnb03321179d6b"
     }
   };
   
