@@ -1,10 +1,12 @@
 import React from "react";
 import {Box, Stack, Typography, Chip} from "@mui/material";
-
+import {Link} from "react-router-dom";
+ 
 function MovieCard(props){
-    const {image, title, genre, year, rating, country} = props;
+    const {image, title, genre, year, rating, country, id} = props;
 
-    return(<Box className="movie-card-container" 
+    return(<Link className="movie-card-link" to={`/movie/${id}`}>
+    <Box className="movie-card-container" 
             sx={{width:"270px", minHeight:"520px",  backgroundColor:"#fff"}}>
             <img className="movie-thumbnail" src={image} alt="movie-thumbnail"/>
             <Typography variant="h6" m="auto" mb="5px" fontWeight="500">
@@ -21,6 +23,7 @@ function MovieCard(props){
             label={country.length>8 ? `${country.substring(0,9)}...` : `Origin: ${country}`}/>
             </Stack>
     </Box> 
+    </Link>
     );
 }
 

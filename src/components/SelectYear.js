@@ -2,11 +2,12 @@ import React from "react";
 import {FormControl, InputLabel, Select, MenuItem} from "@mui/material";
 import {nanoid} from "nanoid";
 
-function SelectYear({releaseYears, selectedYear, setSelectedYear}){
+function SelectYear({releaseYears, selectedYear, setSelectedYear, setSelectedGenre}){
 
   function handleChange(event) {
     const {value} = event.target;
     setSelectedYear(value);
+    setSelectedGenre("");
   }
 
     return(<FormControl fullWidth>

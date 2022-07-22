@@ -15,25 +15,35 @@ function SearchMovies(){
     const [releaseYears, setReleaseYears] = useState([]);
     const [Movies, SetMovies] = useState("");
     const [page, setPage] = useState(1);
-    const [selectedGenre, setSelectedGenre] = useState("all");
-    const [selectedYear, setSelectedYear] = useState(2022);
+    const [selectedGenre, setSelectedGenre] = useState("");
+    const [selectedYear, setSelectedYear] = useState("");
 
-    console.log(selectedGenre);
+    console.log(`selected year is ${selectedYear}`);
+    console.log(`selected genre is ${selectedGenre}`);
 
-    const searchGenre = selectedGenre!=="all" ? `&genres=${selectedGenre}` : null;
-    const searchYear = selectedYear!=="" ? `&year=${selectedYear}` : null;
-    console.log(searchGenre);
+    useEffect(()=>{
 
-    // useEffect(()=>{
-    //     const fetchMovies = async () =>{
-     
-    //             const moviesData = await fetchData(`https://movies-app1.p.rapidapi.com/api/movies?page=${page}`, options);
-    //             SetMovies(moviesData.results);
-    //             console.log(moviesData.results);
-    //     }
-    //     fetchMovies();
-    //     window.scrollTo({top: 500, left: 0, behavior: 'smooth'});
-    // },[page,  selectedYear]);
+        const fetchMovies = async () =>{
+            let moviesData;
+
+            if(selectedGenre==="" && selectedYear===""){
+                moviesData = await fetchData(`https://movies-app1.p.rapidapi.com/api/movies?page=${page}`, options);
+                SetMovies(moviesData.results);
+                console.log(moviesData.results);
+            }else if(selectedGenre!=="" && selectedYear===""){
+                moviesData = await fetchData(`https://movies-app1.p.rapidapi.com/api/movies?genres=${selectedGenre}`, options);
+                SetMovies(moviesData.results);
+                console.log(moviesData.results);
+            }else if(selectedYear!=="" && selectedGenre===""){
+                moviesData = await fetchData(`https://movies-app1.p.rapidapi.com/api/movies?year=${selectedYear}`, options);
+                SetMovies(moviesData.results);
+                console.log(moviesData.results);
+            }
+        }
+        fetchMovies();
+        console.log("use effect ran");
+        window.scrollTo({top: 500, left: 0, behavior: 'smooth'});
+    },[page, selectedGenre, selectedYear]);
 
 
     useEffect(()=>{
@@ -46,13 +56,13 @@ function SearchMovies(){
         }
         fetchReleaseYears();
 
-        // const fetchMovieGenres = async () =>{
-        //     const movieGenresData = await fetchData("https://movies-app1.p.rapidapi.com/api/genres", options);
+        const fetchMovieGenres = async () =>{
+            const movieGenresData = await fetchData("https://movies-app1.p.rapidapi.com/api/genres", options);
 
-        //     setMovieGenresList([...movieGenresData.results]);
-        //     console.log(movieGenresData);
-        // } 
-        // fetchMovieGenres();
+            setMovieGenresList([...movieGenresData.results]);
+            console.log(movieGenresData);
+        } 
+        fetchMovieGenres();
 
     window.scrollTo({top: 500, left: 0, behavior: 'smooth'});
 
@@ -67,13 +77,17 @@ function SearchMovies(){
     <MovieGenres 
     movieGenresList={movieGenresList} 
     selectedGenre={selectedGenre} 
-    setSelectedGenre={setSelectedGenre}/>
+    setSelectedGenre={setSelectedGenre}
+    setSelectedYear={setSelectedYear}
+    />
     <Stack alignItems="center" justifyContent="center" >
-    <Typography variant="h6" fontWeight="700" mb="10px">Search movies by release year</Typography>
+    <Typography variant="h6" fontWeight="700" mb="10px">Or Search movies by release year</Typography>
     <SelectYear 
     releaseYears={releaseYears} 
     selectedYear={selectedYear} 
-    setSelectedYear={setSelectedYear}/>
+    setSelectedYear={setSelectedYear}
+    setSelectedGenre={setSelectedGenre}
+    />
     </Stack>
     </Stack>
     <MoviesSection Movies={Movies} />

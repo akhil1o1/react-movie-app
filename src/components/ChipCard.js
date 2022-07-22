@@ -1,9 +1,10 @@
 import React from "react";
 import {Chip} from "@mui/material";
 
-function ChipCard({label,selectedGenre, setSelectedGenre}){
+function ChipCard({label,selectedGenre, setSelectedGenre, setSelectedYear}){
     function handleClick(label){
         setSelectedGenre(label);
+        setSelectedYear("");
     };
 
     return <Chip 

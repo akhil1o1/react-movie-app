@@ -41,6 +41,11 @@
     border-radius: 15px;
   }
 
+  .movie-card-link{
+    text-decoration: none;
+    color: black !important;
+  }
+
   .movie-card-container{
     padding: 5px;
     padding-top: 10px;
