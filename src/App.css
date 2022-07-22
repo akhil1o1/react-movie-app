@@ -1,5 +1,4 @@
 
-
 * {
     padding: 0px;
     margin: 0px;
@@ -11,9 +10,6 @@
     background-color: #E7F6F2;
   }
 
-  ::-webkit-scrollbar {
-    width: 0px;
-  }
   
 
   .hero{
@@ -67,5 +63,28 @@
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
 
+  .movie-poster{
+    width: 30%;
+  }
+
+  .movie-trailer-link{
+    text-decoration: none;
+    color: black;
+  }
+
+  .movie-trailer-thumbnail{
+    width: 100%;
+  }
+
+  .trailer-card{
+    border-radius: 15px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+
+  .trailer-card:hover{
+    transform: scale(1.03);
+    background-color: rgba(255, 255, 0, 0.363);
+    transition: 0.1s all ease-in-out;
+  }
 
   

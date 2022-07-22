@@ -1,12 +1,15 @@
 import React, {useState, useEffect} from "react";
-import {Box, Typography, Stack} from "@mui/material";
+import {Box, Typography, Stack, Chip} from "@mui/material";
 import {useParams} from "react-router-dom";
+import MovieTrailer from "../components/MovieTrailer";
+import Details from "../components/Details";
 
 function MovieDetails() {
     const {id} = useParams();
     
-    return <Box>
-        <Typography variant="h1">welcome to movie details {id}</Typography>
+    return<Box>
+        <Details/>
+        <MovieTrailer/>
     </Box>
 }
 
