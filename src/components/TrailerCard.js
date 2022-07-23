@@ -18,6 +18,7 @@ function TrailerCard() {
         <Chip label="views: 29630" />
         <Chip label="ago: 9 years ago" />
         </Stack>
+        <Typography variant="subtitle2">YT- Movieclub</Typography>
         <Typography variant="body2" pb="20px">
         Studio: Universal Pictures Release: June 20, 2013 Director: Juan José Campanella Writer: Juan José Campanella, Roberto ...
         </Typography>
@@ -27,3 +28,4 @@ function TrailerCard() {
 }
 
 export default TrailerCard;
+

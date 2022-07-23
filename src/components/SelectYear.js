@@ -20,7 +20,7 @@ function SelectYear({releaseYears, selectedYear, setSelectedYear, setSelectedGen
           onChange={handleChange}
         >
         {releaseYears.map((item)=>(
-            <MenuItem key={nanoid()} value={item.name} >{item.name}</MenuItem>
+            <MenuItem className="select-year-menuitem" key={nanoid()} value={item.name} >{item.name}</MenuItem>
         ))}
         </Select>
       </FormControl>)

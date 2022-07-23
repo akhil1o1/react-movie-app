@@ -1,23 +1,26 @@
 import React from "react";
 import {Box, Stack, Typography, Chip} from "@mui/material";
 
-function Details() {
+function Details({movieDetailData}) {
+    
+    const{image, titleOriginal, countries, genres, rating, release, description} = movieDetailData;
+
     return <Stack direction="row" width="100%" sx={{backgroundColor:"#fff"}}>
-        <img className="movie-poster" src="https://image.tmdb.org/t/p/w300/6zUkjB5OtiFhN2DiqdT1IllNJTa.jpg" alt="movie-poster"/>
+        <img className="movie-poster" src={image} alt="movie-poster"/>
         <Stack p="50px" sx={{width:"60%"}}>
         <Typography variant="h2" fontWeight="700">
-            Fast and Furious 6
+           {titleOriginal}
         </Typography>
-        <Box pt="30px" sx={{display:"flex", justifyContent:"space-between"}}>
-        <Chip label={<Typography variant="h6" fontWeight="700">rating : 6.7/10</Typography>} />
-        <Chip label={<Typography variant="h6" fontWeight="700">release year : 2013</Typography>} />
+        <Box pt="30px" sx={{display:"flex", gap:"30px"}}>
+        <Chip label={<Typography variant="h6" fontWeight="700">{`rating : ${rating}`}</Typography>} />
+        <Chip label={<Typography variant="h6" fontWeight="700">{`release: ${release}`}</Typography>} />
         </Box>
         <Typography variant="h6" pt="30px">
-        Desde que Dom y Brian destruyeron el imperio de un mafioso y se hicieron con cien millones de dólares, se encuentran en paradero desconocido; no pueden regresar a casa porque la ley los persigue. Entretanto, Hobbs ha seguido la pista por una docena de países a una banda de letales conductores mercenarios, cuyo cerebro cuenta con la inestimable ayuda de la sexy Letty, un viejo amor de Dom que éste daba por muerta. La única forma de detenerlos es enfrentarse a ellos en las calles, así que Hobbs le pide a Dom que reúna a su equipo en Londres. ¿Qué obtendrán a cambio? Un indulto para que todos puedan volver a casa con sus familias..
+        {description.length>600 ? description.substring(0, 601) : description}
         </Typography>
-        <Box pt="30px" sx={{display:"flex", justifyContent:"space-between"}}>
-        <Chip label={<Typography variant="h6" fontWeight="700">genre : accion</Typography>} />
-        <Chip label={<Typography variant="h6" fontWeight="700">origin : USA</Typography>} />
+        <Box pt="30px" sx={{display:"flex", gap:"30px"}}>
+        <Chip label={<Typography variant="h6" fontWeight="700">{`genre : ${genres[0].name}`}</Typography>} />
+        <Chip label={<Typography variant="h6" fontWeight="700">{`origin : ${countries[0].name}`}</Typography>} />
         </Box>
     </Stack>
 </Stack>

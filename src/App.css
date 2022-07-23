@@ -1,90 +1,95 @@
 
 * {
-    padding: 0px;
-    margin: 0px;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif !important;
-  }
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif !important;
+}
 
-  body{
-    background-color: #E7F6F2;
-  }
+body{
+  background-color: #E7F6F2;
+}
 
-  
-
-  .hero{
-    background-image: url("../src/assets/images/heroBgImage.jpg");
-    object-fit: contain;
-    mask-repeat: no-repeat;
-     background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  }
-
-  .genre-chip:hover{
-    background-color: rgba(46, 125, 50, 0.699) !important;
-    color: #fff;
-    transition: all ease-in-out;
-  }
-
-  .year-input{
-    height: 30px !important;
-  }
-
-  .movie-thumbnail{
-    width:95%;
-    height: 75%;
-    border-radius: 15px;
-  }
-
-  .movie-card-link{
-    text-decoration: none;
-    color: black !important;
-  }
-
-  .movie-card-container{
-    padding: 5px;
-    padding-top: 10px;
-    border-radius: 15px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  }
-
-  .movie-card-container:hover{
-    transform: scale(1.03);
-    background-color: rgba(255, 255, 0, 0.363);
-    transition: 0.1s all ease-in-out;
-  }
+::-webkit-scrollbar {
+  width: 0px;
+}
 
 
-  .arrow-icon{
-    color: black;
-  }
-  .page-number{
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  }
+.hero{
+  background-image: url("../src/assets/images/heroBgImage.jpg");
+  object-fit: contain;
+  mask-repeat: no-repeat;
+   background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
 
-  .movie-poster{
-    width: 30%;
-  }
+.genre-chip:hover{
+  background-color: rgba(46, 125, 50, 0.699) !important;
+  color: #fff;
+  transition: all ease-in-out;
+}
 
-  .movie-trailer-link{
-    text-decoration: none;
-    color: black;
-  }
+.select-year-menuitem:hover{
+  background-color: rgba(46, 125, 50, 0.699) !important;
+  color: #fff;
+  transition: all ease-in-out;
+}
 
-  .movie-trailer-thumbnail{
-    width: 100%;
-  }
 
-  .trailer-card{
-    border-radius: 15px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  }
+.movie-thumbnail{
+  width:95%;
+  height: 75%;
+  border-radius: 15px;
+}
 
-  .trailer-card:hover{
-    transform: scale(1.03);
-    background-color: rgba(255, 255, 0, 0.363);
-    transition: 0.1s all ease-in-out;
-  }
+.movie-card-link{
+  text-decoration: none;
+  color: black !important;
+}
 
-  
+.movie-card-container{
+  padding: 5px;
+  padding-top: 10px;
+  border-radius: 15px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.movie-card-container:hover{
+  transform: scale(1.03);
+  background-color: rgba(255, 255, 0, 0.363);
+  transition: 0.1s all ease-in-out;
+}
+
+
+.arrow-icon{
+  color: black;
+}
+.page-number{
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.movie-poster{
+  width: 30%;
+}
+
+.movie-trailer-link{
+  text-decoration: none;
+  color: black;
+}
+
+.movie-trailer-thumbnail{
+  width: 100%;
+}
+
+.trailer-card{
+  border-radius: 15px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.trailer-card:hover{
+  transform: scale(1.03);
+  background-color: rgba(255, 255, 0, 0.363);
+  transition: 0.1s all ease-in-out;
+}
+

@@ -21,53 +21,53 @@ function SearchMovies(){
     console.log(`selected year is ${selectedYear}`);
     console.log(`selected genre is ${selectedGenre}`);
 
-    useEffect(()=>{
+    // useEffect(()=>{
 
-        const fetchMovies = async () =>{
-            let moviesData;
+    //     const fetchMovies = async () =>{
+    //         let moviesData;
 
-            if(selectedGenre==="" && selectedYear===""){
-                moviesData = await fetchData(`https://movies-app1.p.rapidapi.com/api/movies?page=${page}`, options);
-                SetMovies(moviesData.results);
-                console.log(moviesData.results);
-            }else if(selectedGenre!=="" && selectedYear===""){
-                moviesData = await fetchData(`https://movies-app1.p.rapidapi.com/api/movies?genres=${selectedGenre}`, options);
-                SetMovies(moviesData.results);
-                console.log(moviesData.results);
-            }else if(selectedYear!=="" && selectedGenre===""){
-                moviesData = await fetchData(`https://movies-app1.p.rapidapi.com/api/movies?year=${selectedYear}`, options);
-                SetMovies(moviesData.results);
-                console.log(moviesData.results);
-            }
-        }
-        fetchMovies();
-        console.log("use effect ran");
-        window.scrollTo({top: 500, left: 0, behavior: 'smooth'});
-    },[page, selectedGenre, selectedYear]);
+    //         if(selectedGenre==="" && selectedYear===""){
+    //             moviesData = await fetchData(`https://movies-app1.p.rapidapi.com/api/movies?page=${page}`, options);
+    //             SetMovies(moviesData.results);
+    //             console.log(moviesData.results);
+    //         }else if(selectedGenre!=="" && selectedYear===""){
+    //             moviesData = await fetchData(`https://movies-app1.p.rapidapi.com/api/movies?genres=${selectedGenre}`, options);
+    //             SetMovies(moviesData.results);
+    //             console.log(moviesData.results);
+    //         }else if(selectedYear!=="" && selectedGenre===""){
+    //             moviesData = await fetchData(`https://movies-app1.p.rapidapi.com/api/movies?year=${selectedYear}`, options);
+    //             SetMovies(moviesData.results);
+    //             console.log(moviesData.results);
+    //         }
+    //     }
+    //     fetchMovies();
+    //     console.log("use effect ran");
+    //     window.scrollTo({top: 500, left: 0, behavior: 'smooth'});
+    // },[page, selectedGenre, selectedYear]);
 
 
-    useEffect(()=>{
+    // useEffect(()=>{
 
-        const fetchReleaseYears = async () =>{
-            const releaseYearsData = await fetchData(`https://movies-app1.p.rapidapi.com/api/years`, options);
+    //     const fetchReleaseYears = async () =>{
+    //         const releaseYearsData = await fetchData(`https://movies-app1.p.rapidapi.com/api/years`, options);
 
-            setReleaseYears(releaseYearsData.results);
-            console.log(releaseYearsData);
-        }
-        fetchReleaseYears();
+    //         setReleaseYears(releaseYearsData.results);
+    //         console.log(releaseYearsData);
+    //     }
+    //     fetchReleaseYears();
 
-        const fetchMovieGenres = async () =>{
-            const movieGenresData = await fetchData("https://movies-app1.p.rapidapi.com/api/genres", options);
+    //     const fetchMovieGenres = async () =>{
+    //         const movieGenresData = await fetchData("https://movies-app1.p.rapidapi.com/api/genres", options);
 
-            setMovieGenresList([...movieGenresData.results]);
-            console.log(movieGenresData);
-        } 
-        fetchMovieGenres();
+    //         setMovieGenresList([...movieGenresData.results]);
+    //         console.log(movieGenresData);
+    //     } 
+    //     fetchMovieGenres();
 
-    window.scrollTo({top: 500, left: 0, behavior: 'smooth'});
+    // window.scrollTo({top: 500, left: 0, behavior: 'smooth'});
 
-        console.log("useEffect ran");
-    },[]);
+    //     console.log("useEffect ran");
+    // },[]);
 
 
 
