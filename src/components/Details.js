@@ -1,9 +1,10 @@
 import React from "react";
 import {Box, Stack, Typography, Chip} from "@mui/material";
 
-function Details({movieDetailData}) {
-    
-    const{image, titleOriginal, countries, genres, rating, release, description} = movieDetailData;
+function Details(props) {
+
+   
+    const{image, titleOriginal, countries, genres, rating, release, description} = props.movieDetailData;
 
     return <Stack direction="row" width="100%" sx={{backgroundColor:"#fff"}}>
         <img className="movie-poster" src={image} alt="movie-poster"/>

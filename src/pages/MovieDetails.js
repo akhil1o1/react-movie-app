@@ -1,43 +1,55 @@
 import React, {useState, useEffect} from "react";
-import {Box} from "@mui/material";
+import {Box, Typography} from "@mui/material";
 import {useParams} from "react-router-dom";
 import MovieTrailers from "../components/MovieTrailers";
 import Details from "../components/Details";
 import {fetchData, options} from "../utils/fetchData";
+import {TailSpin} from "react-loader-spinner";
 
 function MovieDetails() {
+    
     const [movieDetailData, setMovieDetailData] = useState("");
     const [movieTrailerData, setMovieTrailerData] = useState([]);
+    const [loading, setLoading] = useState(true);
     const {id} = useParams();
+   
 
-    // console.log(movieDetailData);
-    // console.log(movieTrailerData);
+    // console.log(id);
+    console.log(movieDetailData);
+    console.log(movieTrailerData);
+
+   
 
     useEffect(()=>{
-        // const fetchMovieDetailData= async ()=> {
-        //     const detailData = await fetchData(`https://movies-app1.p.rapidapi.com/api/movie/${id}`, options);
-        //     setMovieDetailData(detailData.result);
-        // }
-        // fetchMovieDetailData();
+            const fetchMovieData = async ()=> {
 
-     
+            const detailData = await fetchData(`https://movies-app1.p.rapidapi.com/api/movie/${id}`, options);
+            setMovieDetailData(detailData.result);
 
-        // const fetchMovieTrailerData= async ()=> {
-        //     const trailerData = await fetchData(`https://movies-app1.p.rapidapi.com/api/trailers/${id}`, options);
-        //     setMovieTrailerData(trailerData.result);
-        // }
-        // fetchMovieTrailerData();
+            const trailerData = await fetchData(`https://movies-app1.p.rapidapi.com/api/trailers/${id}`, options);
+            setMovieTrailerData(trailerData.result);
 
-        console.log("use effect ran");
+            setLoading(false);
+    }
+    fetchMovieData();
+
+    window.scrollTo({top:0, left: 0, behavior: 'smooth'});
+   
+    },[id]);
+
     
-    },[id])
     
-    return<Box>
+    return loading===false ? (<Box>
         <Details
             movieDetailData={movieDetailData}
         />
-        <MovieTrailers/>
-    </Box>
+        <MovieTrailers 
+            movieTrailerData={movieTrailerData}
+        />
+    </Box>) : <Box width="100%" height="100vh" display="flex" alignItems="center" justifyContent="center">
+     <TailSpin color="#000000" height={80} width={80} />
+     </Box>
+    
 }
 
 export default MovieDetails;
