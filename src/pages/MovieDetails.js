@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {Box, Typography} from "@mui/material";
+import {Box} from "@mui/material";
 import {useParams} from "react-router-dom";
 import MovieTrailers from "../components/MovieTrailers";
 import Details from "../components/Details";

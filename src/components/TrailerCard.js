@@ -5,7 +5,7 @@ function TrailerCard({trailer}) {
     
     const{thumbnail, ago, author, views, title,  url, description} = trailer;
 
-    return <Box className="trailer-card" p="10px" backgroundColor="#fff" width="25%">
+    return <Box className="trailer-card" p="10px" backgroundColor="#fff" width={{lg:"25%", xs:"95%"}}>
         <Stack>
         <a
         className="movie-trailer-link"

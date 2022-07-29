@@ -16,12 +16,14 @@ body{
 
 
 .hero{
-  background-image: url("../src/assets/images/heroBgImage.jpg");
+  /* background-image: ; */
+  background: linear-gradient(rgba(0, 0, 0, 0.445), rgba(0, 0, 0, 0.445)), url("../src/assets/images/heroBgImage.jpg");
   object-fit: contain;
   mask-repeat: no-repeat;
-   background-position: center;
-background-repeat: no-repeat;
-background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
 }
 
 .genre-chip:hover{
@@ -71,6 +73,12 @@ background-size: cover;
 
 .movie-poster{
   width: 30%;
+}
+@media screen and (max-width:600px) {
+  .movie-poster{
+    width: 100% !important;
+    height: 80vh;
+  }
 }
 
 .movie-trailer-link{
