@@ -7,7 +7,7 @@ import {nanoid} from "nanoid";
 function MoviesSection({Movies}) {
     return(<Box marginTop="50px" textAlign="center">
     <Typography variant="h4" fontWeight="700" m="50px">Showing movies</Typography>
-        <Stack direction="row" sx={{flexWrap:"wrap", gap:"20px", alignItems:"center", justifyContent:"space-around", padding:"50px"}}>
+        <Stack direction="row" sx={{flexWrap:"wrap", gap:"20px", alignItems:"center", justifyContent:"space-around", padding:{lg:"50px", xs:"0"}}}>
             {Movies.length && Movies.map((item)=>(
                 <MovieCard 
                     key={nanoid()}

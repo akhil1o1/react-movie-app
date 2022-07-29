@@ -7,7 +7,7 @@ function MovieCard(props){
 
     return(<Link className="movie-card-link" to={`/movie/${id}`}>
     <Box className="movie-card-container" 
-            sx={{width:"270px", minHeight:"520px",  backgroundColor:"#fff"}}>
+            sx={{width:{lg:"270px", xs:"95%"}, minHeight:"520px",  backgroundColor:"#fff"}}>
             <img className="movie-thumbnail" src={image} alt="movie-thumbnail"/>
             <Typography variant="h6" m="auto" mb="5px" fontWeight="500">
             {title.length>20 ?  `${title.substring(0, 20)}...` : title}
