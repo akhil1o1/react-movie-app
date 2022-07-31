@@ -77,12 +77,12 @@ function SearchMovies(){
     return loading===false ? (<Box><Stack direction={{xs:"column", lg:"row"}}  alignItems="center" justifyContent="center" 
     sx={{ paddingInline:"10%", pt:"40px", pb:"60px", gap:"20px", backgroundColor:"#fff"}}
     divider={<Divider orientation="vertical" flexItem />}>  
-    {/* <MovieGenres 
+    <MovieGenres 
     movieGenresList={movieGenresList} 
     selectedGenre={selectedGenre} 
     setSelectedGenre={setSelectedGenre}
     setSelectedYear={setSelectedYear}
-    /> */}
+    />
     <Stack alignItems="center" justifyContent="center" >
     <Typography variant="h6" fontWeight="700" mb="10px">Or Search movies by release year</Typography>
     <SelectYear 
